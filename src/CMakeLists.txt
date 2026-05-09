@@ -1,34 +1,24 @@
 cmake_minimum_required(VERSION 3.15)
 
-# Set the project name
-project(MyTemplate LANGUAGES CXX)
+project(signal LANGUAGES CXX)
 
-# Define UNICODE
-add_definitions(-DUNICODE -D_UNICODE)
+add_library(signal INTERFACE)
+add_library(sg::signal ALIAS signal)
 
-# Add the library target
-add_library(MyTemplate STATIC)
-
-set_target_properties(MyTemplate PROPERTIES
-  DEBUG_POSTFIX "d"
-)
-target_compile_definitions(MyTemplate PRIVATE UNICODE _UNICODE)
-
-# Specify the source files for the library
-target_sources(MyTemplate
-  PRIVATE
-    Sample.h
-    Sample.cpp
-)
-
-# target_link_libraries(MyTemplate PUBLIC MyLibrary)
-
-# Specify the include directories
-target_include_directories(MyTemplate
-  PUBLIC
+target_include_directories(signal
+  INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:include>
 )
 
-# Set C++ standard
-target_compile_features(MyTemplate PRIVATE cxx_std_20)
+target_compile_features(signal INTERFACE cxx_std_20)
+
+target_sources(signal
+  INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/connection.hpp>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/scoped_connection.hpp>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/sg.hpp>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/signal.hpp>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/signal_base.hpp>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/signal_fwd.hpp>
+)
