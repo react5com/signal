@@ -1,0 +1,86 @@
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+CMakeUserPresets.json
+
+# Build directories
+build/
+build-*/
+out/
+bin/
+lib/
+dist/
+debug/
+release/
+
+# Object / binary files
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.a
+*.lib
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.run
+*.out
+*.app
+
+# Debug / symbol info
+*.pdb
+*.idb
+*.dSYM/
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Dependency / intermediate
+*.d
+*.mod
+*.smod
+*.tlog
+*.rsp
+
+# Coverage / profiling
+*.gcno
+*.gcda
+*.gcov
+*.profraw
+*.profdata
+*.cachegrind
+*.callgrind
+*.coverage
+
+# Sanitizer logs
+asan.*
+tsan.*
+lsan.*
+ubsan.*
+
+# Generated config
+config.h
+config.hpp
+
+# IDE / tool metadata
+.vs/
+.idea/
+*.iml
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+*~
